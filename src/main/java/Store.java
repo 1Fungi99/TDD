@@ -20,4 +20,10 @@ public class Store {
         }
         return false;
     }
+
+    public String addItemToCart(String name, double price) {
+        cart = new Cart();
+        cart.addItem(name, price);
+        return name;
+    }
 }

@@ -35,7 +35,23 @@ class StoreTest {
     public void cartAddItems(){
         Store store = new Store();
         try {
-            store.addItemToCart("book", 10.49);
+            assertEquals("book",store.addItemToCart("book", 10.49) );
+        }catch(Exception e){
+            fail();
+        }
+    }
+
+    @Test
+    @Order(5)
+//    See Products?
+    public void SeeProducts(){
+        try{
+            Store store = new Store();
+            store.addItemToCart("[EXEMPT] book", 10.49);
+            store.addItemToCart("music CD", 15.99);
+            store.addItemToCart("[EXEMPT] chocolate bar", .85);
+            store.displayCart();
+            assert(true);
         }catch(Exception e){
             fail();
         }
