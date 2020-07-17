@@ -43,8 +43,8 @@ class StoreTest {
 
     @Test
     @Order(5)
-//    See Products?
-    public void SeeProducts(){
+//    See Products
+    public void seeProducts(){
         try{
             Store store = new Store();
             store.addItemToCart("[EXEMPT] book", 10.49);

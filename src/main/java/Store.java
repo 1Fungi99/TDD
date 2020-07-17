@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Store {
     private String name;
-    private Cart cart;
+    private Cart cart=new Cart();
 
     public String getName() {
         return "Kroger";
@@ -14,7 +14,6 @@ public class Store {
     }
 
     public boolean cartExist() {
-        cart=new Cart();
         if (cart!=null){
             return true;
         }
@@ -22,8 +21,11 @@ public class Store {
     }
 
     public String addItemToCart(String name, double price) {
-        cart = new Cart();
         cart.addItem(name, price);
         return name;
+    }
+
+    public void displayCart() {
+        cart.display();
     }
 }
