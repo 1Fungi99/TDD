@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Store {
     private String name;
-    private List<Cart> cartList = new ArrayList<>();
+    private Cart cart;
 
     public String getName() {
         return "Kroger";
@@ -13,16 +13,11 @@ public class Store {
         return name;
     }
 
-    public boolean cartListExist() {
-       if (this.cartList!=null){
+    public boolean cartExist() {
+        cart=new Cart();
+        if (cart!=null){
             return true;
         }
         return false;
-    }
-
-    public List<Cart> newCart() {
-        Cart cart = new Cart();
-        cartList.add(cart);
-        return cartList;
     }
 }
