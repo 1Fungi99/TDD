@@ -28,4 +28,16 @@ class StoreTest {
         Store store = new Store();
         assertEquals(true,store.cartExist());
     }
+
+    @Test
+    @Order(4)
+//    Add products to Cart
+    public void cartAddItems(){
+        Store store = new Store();
+        try {
+            store.addItemToCart("book", 10.49);
+        }catch(Exception e){
+            fail();
+        }
+    }
 }
