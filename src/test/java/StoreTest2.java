@@ -3,34 +3,30 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class StoreTest {
+class StoreTest2 {
 
-    @Test
-    @Order(1)
+    @Test @Order(1)
 //    Check if store exists
     public void storeExists(){
         Store store=new Store();
         assertEquals("Kroger", store.getName());
     }
 
-    @Test
-    @Order(2)
+    @Test @Order(2)
 //    Possible to change the store name
     public void storeChangeName(){
         Store store = new Store();
         assertEquals("Walmart", store.setName("Walmart"));
     }
 
-    @Test
-    @Order(3)
+    @Test @Order(3)
 //    Checking to see that the cart containing items exists
     public void cartExists(){
         Store store = new Store();
         assertEquals(true,store.cartExist());
     }
 
-    @Test
-    @Order(4)
+    @Test @Order(4)
 //    Add products to Cart
     public void cartAddItems(){
         Store store = new Store();
@@ -41,8 +37,7 @@ class StoreTest {
         }
     }
 
-    @Test
-    @Order(5)
+    @Test @Order(5)
 //    See Products
     public void seeProducts(){
         try{
@@ -56,4 +51,41 @@ class StoreTest {
             fail();
         }
     }
+
+    @Test @Order(6)
+    public void saveCartVariable() {
+        try{
+            Store store = new Store();
+            Cart cart=store.getCart();
+            if (cart!=null){
+                assert(true);
+            }else{
+                assert(false);
+            }
+        }catch(Exception e){
+            fail();
+        }
+
+
+    }
+
+//    @Test @Order(6)
+//    public void setPriceForSalesTax() {
+//
+//
+//    }
+
+//    @Test @Order(6)
+////    Total price of products
+//    public void totalPrice() {
+//        try {
+//            Store store = new Store();
+//            store.addItemToCart("[EXEMPT] book", 10.49);
+//            store.addItemToCart("music CD", 15.99);
+//            store.addItemToCart("[EXEMPT] chocolate bar", .85);
+//            assertEquals(27.33, store.total());
+//        } catch (Exception e) {
+//            fail();
+//        }
+//    }
 }
