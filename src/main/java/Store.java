@@ -28,4 +28,8 @@ public class Store {
     public void displayCart() {
         cart.display();
     }
+
+    public Cart getCart() {
+        return cart;
+    }
 }

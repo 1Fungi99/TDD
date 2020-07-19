@@ -45,7 +45,8 @@ class StoreTest2 {
             store.addItemToCart("[EXEMPT] book", 10.49);
             store.addItemToCart("music CD", 15.99);
             store.addItemToCart("[EXEMPT] chocolate bar", .85);
-            store.displayCart();
+//            Hidden for later testing purposes.
+//            store.displayCart();
             assert(true);
         }catch(Exception e){
             fail();
@@ -65,9 +66,22 @@ class StoreTest2 {
         }catch(Exception e){
             fail();
         }
-
-
     }
+
+    @Test @Order(7)
+    public void addItemToCartFromCart(){
+        try{
+            Store store=new Store();
+            Cart cart = store.getCart();
+            cart.addItem("[EXEMPT] book", 12.49);
+            cart.display();
+            assert (true);
+        } catch (Exception e){
+            fail();
+        }
+    }
+
+
 
 //    @Test @Order(6)
 //    public void setPriceForSalesTax() {
