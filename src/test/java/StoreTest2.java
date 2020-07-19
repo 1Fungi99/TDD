@@ -81,6 +81,13 @@ class StoreTest2 {
         }
     }
 
+    @Test @Order(8)
+    public void nameMatcherApplySalesTax(){
+        Store store = new Store();
+        Cart cart = store.getCart();
+        cart.addItem("music CD", 15.99);
+        assertEquals(16.49,store.checkout());
+    }
 
 
 //    @Test @Order(6)
