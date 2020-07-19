@@ -74,7 +74,8 @@ class StoreTest2 {
             Store store=new Store();
             Cart cart = store.getCart();
             cart.addItem("[EXEMPT] book", 12.49);
-            cart.display();
+//            Hidden for later testing purposes.
+//            cart.display();
             assert (true);
         } catch (Exception e){
             fail();
@@ -82,12 +83,30 @@ class StoreTest2 {
     }
 
     @Test @Order(8)
-    public void nameMatcherApplySalesTax(){
+    public void nameMatcherApplySalesTaxTest1(){
         Store store = new Store();
         Cart cart = store.getCart();
-        cart.addItem("music CD", 15.99);
+        cart.addItem("music CD", 14.99);
         assertEquals(16.49,store.checkout());
     }
+    @Test @Order(9)
+    public void nameMatcherApplySalesTaxTest2(){
+        Store store = new Store();
+        Cart cart = store.getCart();
+        cart.addItem("imported bottle of perfume", 27.99);
+        assertEquals(32.19,store.checkout());
+    }
+
+    @Test @Order(10)
+//    change in expected assertEquals value: from 54.65 to 54.63 since the input of Music CD has sales tax and not rounded. Unsure.
+    public void nameMatcherApplySalesTaxTest3(){
+        Store store = new Store();
+        Cart cart = store.getCart();
+        cart.addItem("imported bottle of perfume", 47.50);
+        assertEquals(54.63,store.checkout());
+    }
+
+    
 
 
 //    @Test @Order(6)

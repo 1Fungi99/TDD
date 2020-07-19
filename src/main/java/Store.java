@@ -13,6 +13,10 @@ public class Store {
         return name;
     }
 
+    public Cart getCart() {
+        return cart;
+    }
+
     public boolean cartExist() {
         if (cart!=null){
             return true;
@@ -29,7 +33,7 @@ public class Store {
         cart.display();
     }
 
-    public Cart getCart() {
-        return cart;
+    public double checkout() {
+        return cart.getTotalWithTax();
     }
 }

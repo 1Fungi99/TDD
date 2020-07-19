@@ -1,4 +1,5 @@
 public class Product {
+    private double tax;
     private String name;
     private double price;
 
@@ -15,5 +16,9 @@ public class Product {
         return price;
     }
 
+    public double getTax() {return tax; }
 
+    public void setTax(double itemTaxApplyResult) {
+        this.tax=itemTaxApplyResult;
+    }
 }
