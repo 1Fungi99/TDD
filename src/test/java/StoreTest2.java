@@ -106,7 +106,16 @@ class StoreTest2 {
         assertEquals(54.63,store.checkout());
     }
 
-    
+    @Test @Order(11)
+//    12.49+(14.99*1.1)+.85=29.83 (Rounded)
+    public void input1() {
+        Store store = new Store();
+        Cart cart = store.getCart();
+        cart.addItem("book [EXEMPT]", 12.49);
+        cart.addItem("music CD", 14.99);
+        cart.addItem("chocolate bar [EXEMPT]", 0.85);
+        assertEquals(29.83,store.checkout());
+    }
 
 
 //    @Test @Order(6)

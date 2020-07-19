@@ -34,6 +34,8 @@ public class Store {
     }
 
     public double checkout() {
+        displayCart();
+        System.out.println("Sales Taxes: $" + cart.getTaxTotal() + " Total: $"+cart.getTotalWithTax());
         return cart.getTotalWithTax();
     }
 }

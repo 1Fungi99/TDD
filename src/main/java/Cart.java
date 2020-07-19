@@ -12,8 +12,8 @@ public class Cart {
 
     public void display() {
         for (int i = 0; i < productsInCart.size();i++){
-            System.out.println("Name: "+productsInCart.get(i).getName());
-            System.out.println("Price: $"+productsInCart.get(i).getPrice()+"\n");
+            double roundOff = (double) Math.round((productsInCart.get(i).getPrice()+productsInCart.get(i).getTax()) * 100) / 100;
+            System.out.println("1 "+productsInCart.get(i).getName()+": $"+(roundOff));
         }
     }
 
@@ -31,17 +31,19 @@ public class Cart {
     }
 
     public double getTotalWithTax() {
-        double total=0;
-        double tax=0;
         double totalWithTax=0;
         for (int i = 0; i < productsInCart.size();i++){
-            tax += productsInCart.get(i).getTax();
-//            System.out.println("tax:" + tax);
-            total += productsInCart.get(i).getPrice();
-//            System.out.println("total: " + total);
-            totalWithTax += tax+total;
+            totalWithTax += productsInCart.get(i).getTax()+productsInCart.get(i).getPrice();
         }
         double roundOff = (double) Math.round(totalWithTax * 100) / 100;
         return roundOff;
+    }
+
+    public double getTaxTotal() {
+        double taxTotal = 0;
+        for (int i = 0; i < productsInCart.size(); i++) {
+            taxTotal += productsInCart.get(i).getTax();
+        }
+        return taxTotal;
     }
 }
