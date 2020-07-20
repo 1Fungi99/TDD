@@ -117,6 +117,28 @@ class StoreTest2 {
         assertEquals(29.83,store.checkout());
     }
 
+    @Test @Order(12)
+    public void input2() {
+        Store store = new Store();
+        Cart cart = store.getCart();
+        cart.addItem("imported box of chocolates [EXEMPT]", 10.00);
+        cart.addItem("imported bottle of perfume", 47.50);
+        assertEquals(65.13,store.checkout());
+    }
+
+    @Test @Order(13)
+    public void input3() {
+        Store store = new Store();
+        Cart cart = store.getCart();
+        cart.addItem("imported bottle of perfume", 27.99);
+        cart.addItem("bottle of perfume", 18.99);
+        cart.addItem("packet of headache pills [EXEMPT]", 9.75);
+        cart.addItem("box of imported chocolates [EXEMPT]", 11.25);
+
+
+        assertEquals(74.64,store.checkout());
+    }
+
 
 //    @Test @Order(6)
 //    public void setPriceForSalesTax() {
